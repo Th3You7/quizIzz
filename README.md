@@ -1,59 +1,58 @@
 # QuizIzz
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+A modern quiz application built with Angular and Tailwind CSS, using the Trivia DB API to deliver engaging quiz experiences.
 
-## Development server
+![QuizIzz Screenshot](screenshot.png)
 
-To start a local development server, run:
+## 📝 Features
 
-```bash
+- **Category Selection**: Choose from a variety of quiz categories
+- **Customizable Settings**: Adjust difficulty level, timer duration, and number of questions
+- **Interactive Quiz Interface**: User-friendly quiz experience with timing and scoring
+- **Responsive Design**: Works on desktop and mobile devices
+- **Score Tracking**: Keep track of your quiz history and performance
+
+## 🛠️ Technologies
+
+- **Frontend**: Angular
+- **Styling**: Tailwind CSS
+- **State Management**: RxJS
+- **API**: Open Trivia Database API
+
+## 🚀 Setup
+
+1. Clone the repository
+
+```
+git clone https://github.com/Th3You7/quizIzz.git
+cd quizIzz
+```
+
+2. Install dependencies
+
+```
+npm install
+```
+
+3. Start the development server
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Navigate to `http://localhost:4200/` in your browser
 
-## Code scaffolding
+## 📊 Presentation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+View the project presentation on Canva: [QuizIzz Presentation](https://www.canva.com/design/DAGlduJzcSU/nkdF_5g8guGdMe8aC6FHdA/edit?utm_content=DAGlduJzcSU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-```bash
-ng generate component component-name
-```
+## 📱 Usage
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Select a quiz category from the home page
+2. Adjust settings if desired (difficulty, timer, number of questions)
+3. Start the quiz and answer questions before the timer runs out
+4. View your score at the end and track your progress
 
-```bash
-ng generate --help
-```
+## 📄 License
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
