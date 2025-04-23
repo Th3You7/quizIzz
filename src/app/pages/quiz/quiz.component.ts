@@ -28,6 +28,7 @@ export class QuizComponent implements OnInit, OnDestroy {
   categoryName: string = '';
   private settingsSubscription?: Subscription;
   private startTime: number = 0;
+  private currentDifficulty: string = 'medium';
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +51,7 @@ export class QuizComponent implements OnInit, OnDestroy {
           this.timeLeft = settings.timer;
           this.startTimer();
         }
+        this.currentDifficulty = settings.difficulty;
       }
     );
   }
@@ -152,7 +154,7 @@ export class QuizComponent implements OnInit, OnDestroy {
       categoryId: Number(this.categoryId),
       score: this.score,
       totalQuestions: this.totalQuestions,
-      difficulty: this.settingsService.settings$.value.difficulty,
+      difficulty: this.currentDifficulty,
       timeSpent: timeSpent,
     });
   }

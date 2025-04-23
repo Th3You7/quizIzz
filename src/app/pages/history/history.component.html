@@ -27,8 +27,8 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-4">
               <!-- Score Icon -->
-              <div class="text-3xl">
-                {{ getScoreIcon(item.score, item.totalQuestions) }}
+              <div class="text-3xl" [ngClass]="getScoreColor(item.percentage)">
+                {{ getScoreIcon(item) }}
               </div>
 
               <!-- Quiz Details -->
@@ -41,9 +41,14 @@
                     formatDate(item.date)
                   }}</span>
                   <span class="text-gray-500">•</span>
-                  <span class="text-sm text-gray-400"
-                    >{{ item.score }}/{{ item.totalQuestions }} correct</span
+                  <span
+                    class="text-sm"
+                    [ngClass]="getScoreColor(item.percentage)"
                   >
+                    {{ item.score }}/{{ item.totalQuestions }} ({{
+                      item.percentage | number : "1.0-0"
+                    }}%)
+                  </span>
                   <span class="text-gray-500">•</span>
                   <span class="text-sm text-gray-400"
                     >{{ item.timeSpent }}s</span

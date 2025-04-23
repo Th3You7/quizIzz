@@ -54,9 +54,16 @@ export class SettingsService {
     localStorage.removeItem('quizSettings');
   }
 
-  addToHistory(history: QuizHistory) {
+  addToHistory(history: Omit<QuizHistory, 'percentage'>) {
     const currentHistory = this.historySubject.value;
-    const newHistory = [history, ...currentHistory];
+    const percentage = (history.score / history.totalQuestions) * 100;
+    const newHistory = [
+      {
+        ...history,
+        percentage,
+      },
+      ...currentHistory,
+    ];
     this.historySubject.next(newHistory);
     localStorage.setItem('quizHistory', JSON.stringify(newHistory));
   }

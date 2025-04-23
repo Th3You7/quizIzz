@@ -7,4 +7,5 @@ export interface QuizHistory {
   totalQuestions: number;
   difficulty: string;
   timeSpent: number;
+  percentage: number;
 }
