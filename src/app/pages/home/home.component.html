@@ -1,0 +1,145 @@
+<div class="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center">
+      <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
+        QuizIzz
+      </h1>
+      <p
+        class="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
+      >
+        Test your knowledge across various categories
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ng-container *ngIf="categories$ | async as categories">
+          <div
+            *ngFor="let category of categories.trivia_categories"
+            (click)="selectCategory(category)"
+            [class.border-purple-500]="selectedCategory?.id === category.id"
+            class="relative rounded-lg border border-gray-700 bg-gray-800 px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-purple-500 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-purple-500 cursor-pointer transition-all duration-200"
+          >
+            <div class="flex-1 min-w-0">
+              <a
+                [routerLink]="['/quiz', category.id]"
+                class="focus:outline-none"
+              >
+                <span class="absolute inset-0" aria-hidden="true"></span>
+                <div class="flex items-center">
+                  <!-- Science -->
+                  <svg
+                    *ngIf="category.name.toLowerCase().includes('science')"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-purple-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                    />
+                  </svg>
+                  <!-- History -->
+                  <svg
+                    *ngIf="category.name.toLowerCase().includes('history')"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-purple-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <!-- Geography -->
+                  <svg
+                    *ngIf="category.name.toLowerCase().includes('geography')"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-purple-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <!-- Entertainment -->
+                  <svg
+                    *ngIf="
+                      category.name.toLowerCase().includes('entertainment')
+                    "
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-purple-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+                    />
+                  </svg>
+                  <!-- Sports -->
+                  <svg
+                    *ngIf="category.name.toLowerCase().includes('sports')"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-purple-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <!-- Default icon for other categories -->
+                  <svg
+                    *ngIf="
+                      !category.name.toLowerCase().includes('science') &&
+                      !category.name.toLowerCase().includes('history') &&
+                      !category.name.toLowerCase().includes('geography') &&
+                      !category.name.toLowerCase().includes('entertainment') &&
+                      !category.name.toLowerCase().includes('sports')
+                    "
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-purple-500 mr-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
+                  </svg>
+                  <p class="text-sm font-medium text-gray-200">
+                    {{ category.name }}
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
