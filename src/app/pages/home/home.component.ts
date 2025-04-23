@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { QuizService } from '../../services/quiz.service';
 import { QuizCategory } from '../../models/quiz-category.model';
 import { Observable } from 'rxjs';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule, NavbarComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {

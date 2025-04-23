@@ -1,0 +1,107 @@
+<app-navbar></app-navbar>
+
+<div class="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <!-- Notification -->
+    <div
+      *ngIf="notification"
+      class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out"
+      [class.opacity-0]="!notification"
+      [class.opacity-100]="notification"
+    >
+      {{ notification }}
+    </div>
+
+    <div class="bg-gray-800 shadow sm:rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+        <h3 class="text-lg leading-6 font-medium text-white">Quiz Settings</h3>
+        <div class="mt-5">
+          <div class="space-y-6">
+            <!-- Difficulty Level -->
+            <div>
+              <label
+                for="difficulty"
+                class="block text-sm font-medium text-gray-300"
+              >
+                Difficulty Level
+              </label>
+              <select
+                id="difficulty"
+                name="difficulty"
+                [(ngModel)]="selectedDifficulty"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md bg-gray-700 text-white"
+              >
+                <option *ngFor="let level of difficultyLevels" [value]="level">
+                  {{ level | titlecase }}
+                </option>
+              </select>
+            </div>
+
+            <!-- Timer Selection -->
+            <div>
+              <label
+                for="timer"
+                class="block text-sm font-medium text-gray-300"
+              >
+                Time per Question (seconds)
+              </label>
+              <select
+                id="timer"
+                name="timer"
+                [(ngModel)]="selectedTimer"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md bg-gray-700 text-white"
+              >
+                <option *ngFor="let time of timerOptions" [value]="time">
+                  {{ time }} seconds
+                </option>
+              </select>
+            </div>
+
+            <!-- Number of Questions -->
+            <div>
+              <label
+                for="questionCount"
+                class="block text-sm font-medium text-gray-300"
+              >
+                Number of Questions
+              </label>
+              <select
+                id="questionCount"
+                name="questionCount"
+                [(ngModel)]="selectedQuestionCount"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-600 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md bg-gray-700 text-white"
+              >
+                <option
+                  *ngFor="let count of questionCountOptions"
+                  [value]="count"
+                >
+                  {{ count }} questions
+                </option>
+              </select>
+            </div>
+
+            <!-- Reset History Button -->
+            <div>
+              <button
+                (click)="resetHistory()"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >
+                Reset Settings
+              </button>
+            </div>
+
+            <!-- Save Button -->
+            <div>
+              <button
+                (click)="saveSettings()"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+              >
+                Save Settings
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
